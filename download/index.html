@@ -140,7 +140,7 @@
     dropdown.addEventListener('change', function() {
       const selectedOption = dropdown.value;
       if (selectedOption !== '') {
-        downloadButton.href = `https://github.com/tracker-friendly/tracker-friendly.github.io/releases/download/iso/${selectedOption}.iso`;
+        downloadButton.href = `https://github.com/tracker-friendly/tracker-friendly.github.io/releases/latest/download/${selectedOption}.iso`;
         downloadButton.classList.remove('disabled');
         downloadButton.removeAttribute('disabled');
       } else {
