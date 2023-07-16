@@ -80,25 +80,76 @@
       transition: background-color 0.3s ease;
     }
     
+    .download-button.disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+    
     .download-button:hover {
       background-color: #008040;
+    }
+
+    .architecture-dropdown-container {
+      margin-bottom: 20px;
+    }
+
+    .architecture-dropdown {
+      background-color: #fff;
+      color: #333;
+      padding: 10px;
+      font-size: 16px;
+      border: 2px solid #00cc66;
+      border-radius: 5px;
+      transition: border-color 0.3s ease;
+      margin-bottom: 10px;
+    }
+
+    .architecture-dropdown:hover {
+      border-color: #008040;
     }
   </style>
 </head>
 <body>
   <div class="title-bar">
-    <img src="evolutionos.png" alt="EvolutionOS Logo">
+    <img src="/evolutionos.png" alt="EvolutionOS Logo">
     <div class="buttons">
       <a href="/download">Download</a>
       <a href="/wiki">Wiki</a>
     </div>
   </div>
   <div class="container">
-    <img src="evolutionos.png" alt="EvolutionOS Logo" class="logo">
+    <img src="/evolutionos.png" alt="EvolutionOS Logo" class="logo">
     <h1>Download</h1>
-    <p>64-Bit x86 CPU (Select if unsure)</p>
-    <a href="about:blank" class="download-button">Download</a>
+    <div class="architecture-dropdown-container">
+      <p>Select your architecture:</p>
+      <select id="architecture-dropdown" class="architecture-dropdown">
+        <option value="">Select architecture</option>
+        <option value="x86_64">x86_64</option>
+        <option value="i686">i686</option>
+        <option value="aarch64">aarch64</option>
+        <option value="armv7l">armv7l</option>
+        <option value="armv6l">armv6l</option>
+      </select>
+    </div>
+    <a href="about:blank" class="download-button disabled" id="download-link" disabled>Download</a>
   </div>
+  <script>
+    const dropdown = document.getElementById('architecture-dropdown');
+    const downloadButton = document.getElementById('download-link');
+
+    dropdown.addEventListener('change', function() {
+      const selectedOption = dropdown.value;
+      if (selectedOption !== '') {
+        downloadButton.href = `https://github.com/tracker-friendly/tracker-friendly.github.io/releases/download/iso/${selectedOption}.iso`;
+        downloadButton.classList.remove('disabled');
+        downloadButton.removeAttribute('disabled');
+      } else {
+        downloadButton.href = 'about:blank';
+        downloadButton.classList.add('disabled');
+        downloadButton.setAttribute('disabled', 'disabled');
+      }
+    });
+  </script>
 </body>
 </html>
 
