@@ -1,8 +1,5 @@
 # EvolutionOS Homepage
-You have reached the homepage for EvolutionOS!
 
-To install it, please do the following:
+This is the website for EvolutionOS / Evolution Linux
 
-Get a void install usb and add this to the top of /usr/share/xbps.d/00-repository.conf:
-
-repository=https://tracker-friendly.github.io/pkg
+Downloads can be found in releases
