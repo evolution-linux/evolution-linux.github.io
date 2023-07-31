@@ -26,6 +26,7 @@
     .title-bar img {
       max-height: 40px;
       margin-right: 10px;
+      margin-left: 10px;
     }
     
     .title-bar .buttons {
@@ -44,6 +45,20 @@
     }
     
     .title-bar a:hover {
+      background-color: #008040;
+    }
+    
+    .title-bar b {
+      background-color: #00cc66;
+      color: #fff;
+      font-size: 20px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    
+    .title-bar b:hover {
       background-color: #008040;
     }
     
@@ -113,9 +128,9 @@
 </head>
 <body>
   <div class="title-bar">
-    <a href="/">
+    <b href="/">
       <img src="/evolutionos.png" alt="EvolutionOS Logo">
-    </a>
+    </b>
     <div class="buttons">
       <a href="/download">Download</a>
       <a href="/wiki">Wiki</a>
