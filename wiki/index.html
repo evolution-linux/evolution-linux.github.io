@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <title>EvolutionOS Homepage</title>
   <style>
     body {
@@ -11,8 +12,9 @@
     }
     
     .title-bar {
+      max-height: 60px;
       background-color: #00cc66;
-      padding: 10px;
+      padding: 5px;
       color: #fff;
       display: flex;
       align-items: center;
@@ -25,6 +27,7 @@
     .title-bar img {
       max-height: 40px;
       margin-right: 10px;
+      margin-left: 10px;
     }
     
     .title-bar .buttons {
@@ -34,7 +37,7 @@
     .title-bar a {
       background-color: #00cc66;
       color: #fff;
-      padding: 18px 20px;
+      padding: 18px 10px;
       font-size: 20px;
       border: none;
       cursor: pointer;
@@ -43,6 +46,21 @@
     }
     
     .title-bar a:hover {
+      background-color: #008040;
+    }
+    
+    .title-bar b {
+      background-color: #00cc66;
+      color: #fff;
+      padding: 7px 0px;
+      font-size: 20px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    
+    .title-bar b:hover {
       background-color: #008040;
     }
     
@@ -67,7 +85,7 @@
     .logo {
       max-width: 200px;
       margin-bottom: 20px;
-      margin-top: 60px;
+      margin-top: 95px;
     }
     
     .download-button {
@@ -80,19 +98,73 @@
       transition: background-color 0.3s ease;
     }
     
+    .download-button.disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+    
     .download-button:hover {
       background-color: #008040;
+    }
+
+    .architecture-dropdown-container {
+      margin-bottom: 20px;
+    }
+
+    .architecture-dropdown {
+      background-color: #fff;
+      color: #333;
+      padding: 10px;
+      font-size: 16px;
+      border: 2px solid #00cc66;
+      border-radius: 5px;
+      transition: border-color 0.3s ease;
+      margin-bottom: 10px;
+    }
+
+    .architecture-dropdown:hover {
+      border-color: #008040;
+    }
+
+    /* Additional styles for dark mode */
+    .dark-mode {
+      background-color: #222;
+      color: #fff;
+    }
+
+    .title-bar button.dark-mode-button {
+      background-color: #00cc66;
+      color: #fff;
+      padding: 18px 20px;
+      font-size: 20px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .title-bar button.dark-mode-button:hover {
+      background-color: #008040;
+    }
+
+    body.dark-mode h1 {
+      color: #6c6c6c;
     }
   </style>
 </head>
 <body>
   <div class="title-bar">
-    <img src="/evolutionos.png" alt="EvolutionOS Logo">
+    <b href="/">
+      <img src="/evolutionos.png" alt="EvolutionOS Logo">
+    </b>
     <div class="buttons">
       <a href="/download">Download</a>
       <a href="/wiki">Wiki</a>
       <a href="https://github.com/evolution-linux/evolution-packages">Source Code</a>
+      <!-- New button for toggling dark mode -->
+      <button onclick="toggleDarkMode()" class="dark-mode-button">Toggle Dark Mode</button>
     </div>
+  </div>
   </div>
   <div class="container">
     <img src="/evolutionos.png" alt="EvolutionOS Logo" class="logo">
@@ -100,6 +172,70 @@
     <p>EvolutionOS shares a wiki with Void Linux. The OS will be refered to as Void Linux. The only real thing to keep in mind is that EvolutionOS uses 2 repos instead of one.</p>
     <a href="https://docs.voidlinux.org" class="download-button">I understand, redirect me.</a>
   </div>
+  <script>
+    const dropdown = document.getElementById('architecture-dropdown');
+    const downloadButton = document.getElementById('download-link');
+
+    dropdown.addEventListener('change', function() {
+      const selectedOption = dropdown.value;
+      if (selectedOption !== '') {
+        downloadButton.href = `https://github.com/evolution-linux/evolution-linux.github.io/releases/latest/download/${selectedOption}.iso`;
+        downloadButton.classList.remove('disabled');
+        downloadButton.removeAttribute('disabled');
+      } else {
+        downloadButton.href = 'about:blank';
+        downloadButton.classList.add('disabled');
+        downloadButton.setAttribute('disabled', 'disabled');
+      }
+    });
+
+    // Check if a dark mode cookie exists, and apply dark mode if it does
+    if (getCookie("darkMode") === "true") {
+      applyDarkMode();
+    }
+
+    function toggleDarkMode() {
+      if (getCookie("darkMode") === "true") {
+        // Disable dark mode
+        setCookie("darkMode", "false", 365);
+        applyLightMode();
+      } else {
+        // Enable dark mode
+        setCookie("darkMode", "true", 365);
+        applyDarkMode();
+      }
+    }
+
+    function applyDarkMode() {
+      document.body.classList.add("dark-mode");
+    }
+
+    function applyLightMode() {
+      document.body.classList.remove("dark-mode");
+    }
+
+    // Helper functions for handling cookies
+    function setCookie(name, value, days) {
+      var expires = "";
+      if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+      }
+      document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    }
+
+    function getCookie(name) {
+      var nameEQ = name + "=";
+      var ca = document.cookie.split(';');
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+      }
+      return null;
+    }
+  </script>
 </body>
 </html>
 
