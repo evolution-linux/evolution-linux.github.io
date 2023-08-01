@@ -1,161 +1,64 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta content="EvolutionOS - Redefining speed" property="og:title">
-  <meta content="This is the homepage for EvolutionOS, the Linux Distro that redefines speed. It strives to be minimal yet speedy, with only the best handpicked components. Check it out here!" property="og:description">
-  <meta content="EvolutionOS Homepage" property="og:site_name">
-  <meta content="https://evolution-linux.github.io/evolutionos.png" property="og:image">
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="utf-8">
+        <title>About This Handbook - Void Linux Handbook</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
 
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <title>EvolutionOS Homepage</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 20px;
-      background-color: #f2f2f2;
-    }
-    
-    .title-bar {
-      max-height: 60px;
-      background-color: #00cc66;
-      padding: 5px;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-    }
-    
-    .title-bar img {
-      max-height: 40px;
-      margin-right: 10px;
-      margin-left: 10px;
-    }
-    
-    .title-bar .buttons {
-      margin-right: 0px;
-    }
-    
-    .title-bar a {
-      background-color: #00cc66;
-      color: #fff;
-      padding: 18px 10px;
-      font-size: 20px;
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-    }
-    
-    .title-bar a:hover {
-      background-color: #008040;
-    }
-    
-    .title-bar b {
-      background-color: #00cc66;
-      color: #fff;
-      padding: 7px 0px;
-      font-size: 20px;
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-    }
-    
-    .title-bar b:hover {
-      background-color: #008040;
-    }
-    
-    h1 {
-      color: #333;
-      font-size: 40px;
-      margin-top: 10px;
-    }
-    
-    p {
-      color: #666;
-      font-size: 20px;
-      line-height: 1.5;
-      margin-bottom: 40px;
-    }
-    
-    .container {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    
-    .logo {
-      max-width: 200px;
-      margin-bottom: 20px;
-      margin-top: 95px;
-    }
-    
-    .download-button {
-      background-color: #00cc66;
-      color: #fff;
-      padding: 15px 30px;
-      font-size: 24px;
-      text-decoration: none;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
-    }
-    
-    .download-button:hover {
-      background-color: #008040;
-    }
-    
-    /* Additional styles for dark mode */
-    .dark-mode {
-      background-color: #222;
-      color: #fff;
-    }
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+        </script>
+		<!-- Work around some values being stored in localStorage wrapped in quotes -->
+		<script type="text/javascript">
+			try {
+				var sidebar = localStorage.getItem('mdbook-sidebar');
 
-    .title-bar button.dark-mode-button {
-      background-color: #00cc66;
-      color: #fff;
-      padding: 18px 20px;
-      font-size: 20px;
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-    }
+				if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+					localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+				}
+			} catch (e) { }
+		</script>
 
-    .title-bar button.dark-mode-button:hover {
-      background-color: #008040;
-    }
+		<header>
+			<nav id="void-nav">
+				<ul>
+					<li><a id="skip-to-content" tabindex="1" href="#main">Skip to content</a></li>
+					<li>
+						<button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+								<path d="M1 3v2h18V3zm0 8h18V9H1zm0 6h18v-2H1z"/>
+							</svg>
+						</button>
+					</li>
+					<li>
+						<button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+								<path d="M7.5 13c3.04 0 5.5-2.46 5.5-5.5S10.54 2 7.5 2 2 4.46 2 7.5 4.46 13 7.5 13zm4.55.46C10.79 14.43 9.21 15 7.5 15 3.36 15 0 11.64 0 7.5S3.36 0 7.5 0C11.64 0 15 3.36 15 7.5c0 1.71-.57 3.29-1.54 4.55l6.49 6.49-1.41 1.41-6.49-6.49z"/>
+							</svg>
+						</button>
+					</li>
+                                        <noscript>
+                                          <li class="js-unavailable">Search functionality requires JavaScript</li>
+                                        </noscript>
+				</ul>
+				<ul id="nav-right">
+          <li><a href="/download">Download</a>
+					<li><a href="/wiki">Wiki</a></li>
+					<li><a href="https://github.com/evolution-linux/evolution-linux.github.io">Source Code</a></li>
+					<button onclick="toggleDarkMode()" class="dark-mode-button">Toggle Dark Mode</button>
+				</ul>
+			</nav>
+		</header>
 
-    body.dark-mode h1 {
-      color: #8c8c8c;
-    }
-  </style>
-</head>
-<body>
-  <div class="title-bar">
-    <b href="/">
-      <img src="/evolutionos.png" alt="EvolutionOS Logo">
-    </b>
-    <div class="buttons">
-      <a href="/download">Download</a>
-      <a href="/wiki">Wiki</a>
-      <a href="https://github.com/evolution-linux/evolution-packages">Source Code</a>
-      <a id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-					<path d="M1 3v2h18V3zm0 8h18V9H1zm0 6h18v-2H1z"/>
-				</svg>
-			</a>
-			<a id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
-				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-					<path d="M7.5 13c3.04 0 5.5-2.46 5.5-5.5S10.54 2 7.5 2 2 4.46 2 7.5 4.46 13 7.5 13zm4.55.46C10.79 14.43 9.21 15 7.5 15 3.36 15 0 11.64 0 7.5S3.36 0 7.5 0C11.64 0 15 3.36 15 7.5c0 1.71-.57 3.29-1.54 4.55l6.49 6.49-1.41 1.41-6.49-6.49z"/>
-				</svg>
-			</a>
-      <!-- New button for toggling dark mode -->
-      a<button onclick="toggleDarkMode()" class="dark-mode-button">Toggle Dark Mode</button>
-    </div>
-  </div>
 		<div id="content">
 
 			<!-- Hide / unhide sidebar before it is displayed -->
@@ -256,7 +159,7 @@ service name.</p>
         <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
 
         <script src="../book.js" type="text/javascript" charset="utf-8"></script>
-  <script>
+          <script>
     // Check if a dark mode cookie exists, and apply dark mode if it does
     if (getCookie("darkMode") === "true") {
       applyDarkMode();
@@ -304,6 +207,5 @@ service name.</p>
       return null;
     }
   </script>
-</body>
+    </body>
 </html>
-
