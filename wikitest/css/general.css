@@ -22,7 +22,7 @@ ao {
 	color: #478061;
 	text-decoration: none;
 }
-ao:hover {
+aoo:hover {
 	color: #333;
 	text-decoration: underline;
 }
@@ -336,100 +336,6 @@ body {
 	}
 	table {
 		display: table;
-	}
-}
-
-@media (prefers-color-scheme: dark) {
-	body {
-		color: #ccc;
-		background-color: #222;
-	}
-	h1, h2, h3, h4, h5, h6 { color: #ccc; }
-	a {
-		color: #62b086;
-	}
-	a:hover {
-		color: #ccc;
-	}
-
-	code {
-		background: inherit;
-	}
-	pre {
-		background: #353535;
-		border: 1px solid #111;
-	}
-
-	blockquote {
-		background: inherit;
-		border-left: .2em solid #ccc;
-		border-right: none;
-		border-top: none;
-		border-bottom: none;
-		padding-top: .5em;
-		padding-bottom: .5em;
-		padding-left: 1em;
-		padding-right: 1em;
-		margin-left: 1em;
-	}
-	blockquote code {
-		color: #62b086;
-	}
-        li.js-unavailable {
-                background-color: #f6cf68;
-                color: #000000;
-                border-radius: 10px;
-                margin-left: 1em;
-                padding-left: 1em;
-                padding-right: 1em;
-        }
-	table td {
-		border: 1px #2c2c2c solid;
-	}
-	table thead {
-		background: #2c2c2c;
-	}
-	table tbody tr:nth-child(2n) {
-		background: #2c2c2c;
-	}
-
-	/* nav */
-	#void-nav ul li a:hover,
-	#void-nav ul li a:focus,
-	#void-nav button:hover,
-	#void-nav button:focus,
-	#void-nav label:hover,
-	#void-nav label:focus {
-		background: #222;
-	}
-
-	#void-nav {
-		background: #295340;
-	}
-
-	/* sidebar  */
-	#sidebar {
-		background: #252525;
-	}
-	#sidebar a {
-		color: #ccc;
-	}
-	#sidebar a:hover {
-		color: #62b086;
-	}
-	#sidebar a.active {
-		color: #62b086;
-	}
-
-	/* search */
-	#searchbar {
-		background-color: #222;
-		color: #ccc;
-	}
-
-	/* chapter navigation */
-	.nav-chapters:hover {
-		fill: #fff
 	}
 }
 
