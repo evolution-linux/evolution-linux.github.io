@@ -1,0 +1,419 @@
+body {
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 1rem;
+	line-height: 1.5;
+	color: #333;
+	margin: 0;
+	background-color: #ffffff;
+}
+h1, h2, h3, h4, h5, h6 { color: #333; }
+a {
+	color: #478061;
+	text-decoration: none;
+}
+a:hover {
+	color: #333;
+	text-decoration: underline;
+}
+
+code {
+	background: #fdf6e3;
+	padding: 2px 4px;
+	border-radius: 4px;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+pre code {
+	padding: 0;
+	border-radius: 0;
+}
+pre {
+	padding: .5em;
+	margin: 1em 0;
+	background: #fdf6e3;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+
+blockquote {
+	margin: 20px 0;
+	padding: 0 20px;
+	padding-left: 1em;
+	background: #ebf4ef;
+	border: 1px solid #d1e6da;
+	border-left: none;
+	border-right: none;
+}
+
+li.js-unavailable {
+        background-color: #f6cf68;
+        border-radius: 10px;
+        margin-left: 1em;
+        padding-left: 1em;
+        padding-right: 1em;
+}
+
+table {
+	border-collapse: collapse;
+	display: block;
+	overflow-y: auto;
+}
+table td {
+	padding: 3px 20px;
+	border: 1px #fafafa solid;
+}
+table thead {
+	background: #fafafa;
+}
+table thead td {
+	font-weight: 700;
+	border: none;
+}
+table thead tr {
+}
+/* Alternate background colors for rows */
+table tbody tr:nth-child(2n) {
+	background: #fafafa;
+}
+
+svg {
+	position: relative;
+	top: .125em;
+	width: 1em;
+	height: auto;
+}
+
+.hidden {
+	display: none;
+}
+
+.icon-button {
+	border: none;
+	background: none;
+	cursor: pointer;
+	padding: 1em;
+}
+
+/* void navigation */
+
+#void-nav {
+	width: 100%;
+	min-height: 50px;
+	background: #478061;
+	font-size: 14px;
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+#void-nav button,
+#void-nav label {
+	fill: #fff;
+	height: 50px;
+	display: block;
+	line-height: 50px;
+	padding: 0 15px;
+	font-size: 1.2em;
+}
+#void-nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#void-nav ul#nav-right {
+	margin-left: auto;
+}
+
+#void-nav ul li {
+	display: inline-block;
+}
+#void-nav ul li a {
+	color: #fff;
+	display: block;
+	padding: 0 15px;
+	line-height: 50px;
+	font-size: 1.2em;
+	text-decoration: none
+}
+#void-nav ul li a:hover,
+#void-nav ul li a:focus,
+#void-nav button:hover,
+#void-nav button:focus,
+#void-nav label:hover,
+#void-nav label:focus {
+	background: #000;
+}
+
+#skip-to-content {
+	position: absolute;
+	left: -999px;
+	top: -999px;
+}
+
+#skip-to-content:active,
+#skip-to-content:focus {
+	position: relative;
+	left: 0;
+	top: 0;
+}
+
+/* sidebar  */
+
+.sidebar-hidden #sidebar {
+	display: none;
+}
+#sidebar {
+	padding: .5em;
+	background: #fafafa;
+	font-size: 0.875em;
+}
+#sidebar ol {
+	list-style: none;
+	margin: 0;
+}
+#sidebar ol.chapter {
+	padding: 0;
+	line-height: 2.2em;
+}
+#sidebar ol.section {
+	padding-left: 20px;
+	line-height: 1.9em;
+}
+#sidebar a {
+	color: #000;
+	display: block;
+}
+#sidebar a:hover {
+	color: #478061;
+	text-decoration: none;
+}
+#sidebar a.active {
+	color: #478061;
+}
+
+#sidebar-toggle {
+	display: none;
+}
+
+/* search */
+
+#searchbar {
+	width: 100%;
+	padding: 10px 16px;
+	margin: 5px 0;
+	border-radius: 3px;
+	border: 1px solid #aaa;
+}
+#searchresults-header {
+	font-weight: bold;
+	font-size: 1em;
+	padding: 18px 0 0 5px;
+}
+ul#searchresults {
+	list-style: none;
+	padding-left: 20px;
+}
+ul#searchresults li {
+	margin: 10px 0px;
+	padding: 2px;
+	border-radius: 2px;
+}
+ul#searchresults span.teaser {
+	display: block;
+	clear: both;
+	margin: 5px 0 0 20px;
+	font-size: 0.8em;
+}
+
+/* chapter navigation */
+
+#nav-wide-wrapper {
+	max-width: 800px;
+	margin: 0 auto;
+	margin-top: 50px;
+}
+.previous {
+	float: left;
+}
+.next {
+	float: right;
+	right: 15px;
+}
+.nav-chapters {
+	fill: #ccc;
+	text-align: center;
+	text-decoration: none;
+	display: block;
+	max-width: 150px;
+	min-width: 90px;
+}
+.nav-chapters:hover {
+	text-decoration: none;
+	fill: #333
+}
+
+.nav-chapters svg {
+	margin: 0 auto;
+	width: 1.5em;
+}
+
+/* layout */
+
+body {
+	box-sizing: border-box;
+}
+#content {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+}
+#page-wrapper {
+	--content-padding: 10px;
+	padding: 0 var(--content-padding);
+	width: calc(100% - var(--content-padding) * 2);
+}
+#search-wrapper,
+#page-wrapper main {
+	width: 100%;
+	max-width: 800px;
+	margin: 0 auto;
+}
+#sidebar {
+	max-width: 300px;
+	flex-shrink: 0;
+}
+
+/* 300px + 800px + 2*90px + 15px */
+@media only screen and (min-width: 1295px) {
+	.sidebar-visible #nav-wide-wrapper {
+		max-width: none;
+		margin: 0;
+	}
+	.sidebar-visible .nav-chapters {
+		background: none;
+		position: fixed;
+		top: 50px;
+		bottom: 0;
+		margin: 0;
+		justify-content: center;
+		align-content: center;
+		display: flex;
+		flex-direction: column;
+	}
+}
+/* 800px + 2*90px + 15px */
+@media only screen and (min-width: 995px) {
+	.sidebar-hidden #nav-wide-wrapper {
+		max-width: none;
+		margin: 0;
+	}
+	.sidebar-hidden .nav-chapters {
+		background: none;
+		position: fixed;
+		top: 50px;
+		bottom: 0;
+		margin: 0;
+		justify-content: center;
+		align-content: center;
+		display: flex;
+		flex-direction: column;
+	}
+	table {
+		display: table;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	body {
+		color: #ccc;
+		background-color: #222;
+	}
+	h1, h2, h3, h4, h5, h6 { color: #ccc; }
+	a {
+		color: #62b086;
+	}
+	a:hover {
+		color: #ccc;
+	}
+
+	code {
+		background: inherit;
+	}
+	pre {
+		background: #353535;
+		border: 1px solid #111;
+	}
+
+	blockquote {
+		background: inherit;
+		border-left: .2em solid #ccc;
+		border-right: none;
+		border-top: none;
+		border-bottom: none;
+		padding-top: .5em;
+		padding-bottom: .5em;
+		padding-left: 1em;
+		padding-right: 1em;
+		margin-left: 1em;
+	}
+	blockquote code {
+		color: #62b086;
+	}
+        li.js-unavailable {
+                background-color: #f6cf68;
+                color: #000000;
+                border-radius: 10px;
+                margin-left: 1em;
+                padding-left: 1em;
+                padding-right: 1em;
+        }
+	table td {
+		border: 1px #2c2c2c solid;
+	}
+	table thead {
+		background: #2c2c2c;
+	}
+	table tbody tr:nth-child(2n) {
+		background: #2c2c2c;
+	}
+
+	/* nav */
+	#void-nav ul li a:hover,
+	#void-nav ul li a:focus,
+	#void-nav button:hover,
+	#void-nav button:focus,
+	#void-nav label:hover,
+	#void-nav label:focus {
+		background: #222;
+	}
+
+	#void-nav {
+		background: #295340;
+	}
+
+	/* sidebar  */
+	#sidebar {
+		background: #252525;
+	}
+	#sidebar a {
+		color: #ccc;
+	}
+	#sidebar a:hover {
+		color: #62b086;
+	}
+	#sidebar a.active {
+		color: #62b086;
+	}
+
+	/* search */
+	#searchbar {
+		background-color: #222;
+		color: #ccc;
+	}
+
+	/* chapter navigation */
+	.nav-chapters:hover {
+		fill: #fff
+	}
+}

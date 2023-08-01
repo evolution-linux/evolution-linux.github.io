@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="EvolutionOS - Redefining speed" property="og:title">
+  <meta content="This is the homepage for EvolutionOS, the Linux Distro that redefines speed. It strives to be minimal yet speedy, with only the best handpicked components. Check it out here!" property="og:description">
+  <meta content="EvolutionOS Homepage" property="og:site_name">
+  <meta content="https://evolution-linux.github.io/evolutionos.png" property="og:image">
+
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <title>EvolutionOS Homepage</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+      background-color: #f2f2f2;
+    }
+    
+    .title-bar {
+      max-height: 60px;
+      background-color: #00cc66;
+      padding: 5px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+    
+    .title-bar img {
+      max-height: 40px;
+      margin-right: 10px;
+      margin-left: 10px;
+    }
+    
+    .title-bar .buttons {
+      margin-right: 0px;
+    }
+    
+    .title-bar a {
+      background-color: #00cc66;
+      color: #fff;
+      padding: 18px 10px;
+      font-size: 20px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    
+    .title-bar a:hover {
+      background-color: #008040;
+    }
+    
+    .title-bar b {
+      background-color: #00cc66;
+      color: #fff;
+      padding: 7px 0px;
+      font-size: 20px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    
+    .title-bar b:hover {
+      background-color: #008040;
+    }
+    
+    h1 {
+      color: #333;
+      font-size: 40px;
+      margin-top: 10px;
+    }
+    
+    p {
+      color: #666;
+      font-size: 20px;
+      line-height: 1.5;
+      margin-bottom: 40px;
+    }
+    
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .logo {
+      max-width: 200px;
+      margin-bottom: 20px;
+      margin-top: 95px;
+    }
+    
+    .download-button {
+      background-color: #00cc66;
+      color: #fff;
+      padding: 15px 30px;
+      font-size: 24px;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    
+    .download-button:hover {
+      background-color: #008040;
+    }
+    
+    /* Additional styles for dark mode */
+    .dark-mode {
+      background-color: #222;
+      color: #fff;
+    }
+
+    .title-bar button.dark-mode-button {
+      background-color: #00cc66;
+      color: #fff;
+      padding: 18px 20px;
+      font-size: 20px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .title-bar button.dark-mode-button:hover {
+      background-color: #008040;
+    }
+
+    body.dark-mode h1 {
+      color: #8c8c8c;
+    }
+  </style>
+</head>
+<body>
+  <div class="title-bar">
+    <b href="/">
+      <img src="/evolutionos.png" alt="EvolutionOS Logo">
+    </b>
+    <div class="buttons">
+      <a href="/download">Download</a>
+      <a href="/wiki">Wiki</a>
+      <a href="https://github.com/evolution-linux/evolution-packages">Source Code</a>
+      <a id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+					<path d="M1 3v2h18V3zm0 8h18V9H1zm0 6h18v-2H1z"/>
+				</svg>
+			</a>
+			<a id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+					<path d="M7.5 13c3.04 0 5.5-2.46 5.5-5.5S10.54 2 7.5 2 2 4.46 2 7.5 4.46 13 7.5 13zm4.55.46C10.79 14.43 9.21 15 7.5 15 3.36 15 0 11.64 0 7.5S3.36 0 7.5 0C11.64 0 15 3.36 15 7.5c0 1.71-.57 3.29-1.54 4.55l6.49 6.49-1.41 1.41-6.49-6.49z"/>
+				</svg>
+			</a>
+      <!-- New button for toggling dark mode -->
+      a<button onclick="toggleDarkMode()" class="dark-mode-button">Toggle Dark Mode</button>
+    </div>
+  </div>
+		<div id="content">
+
+			<!-- Hide / unhide sidebar before it is displayed -->
+			<script type="text/javascript">
+				var html = document.querySelector('html');
+				var sidebar = 'hidden';
+				if (document.body.clientWidth >= 1080) {
+					try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+					sidebar = sidebar || 'visible';
+				}
+				html.classList.remove('sidebar-visible');
+				html.classList.add("sidebar-" + sidebar);
+			</script>
+
+			<nav id="sidebar" aria-label="Table of contents">
+				<ol class="chapter"><li class="chapter-item expanded "><a href="../../about/index.html"><strong aria-hidden="true">1.</strong> About</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../about/history.html"><strong aria-hidden="true">1.1.</strong> History</a></li><li class="chapter-item expanded "><a href="../../about/about-this-handbook.html"><strong aria-hidden="true">1.2.</strong> About This Handbook</a></li><li class="chapter-item expanded "><a href="../../about/infradocs.html"><strong aria-hidden="true">1.3.</strong> InfraDocs</a></li></ol></li><li class="chapter-item expanded "><a href="../../installation/index.html"><strong aria-hidden="true">2.</strong> Installation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../installation/live-images/index.html"><strong aria-hidden="true">2.1.</strong> Live Installers</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../installation/live-images/prep.html"><strong aria-hidden="true">2.1.1.</strong> Prepare Installation Media</a></li><li class="chapter-item expanded "><a href="../../installation/live-images/partitions.html"><strong aria-hidden="true">2.1.2.</strong> Partitioning Notes</a></li><li class="chapter-item expanded "><a href="../../installation/live-images/guide.html"><strong aria-hidden="true">2.1.3.</strong> Installation Guide</a></li></ol></li><li class="chapter-item expanded "><a href="../../installation/guides/index.html"><strong aria-hidden="true">2.2.</strong> Advanced Installation Guides</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../installation/guides/chroot.html"><strong aria-hidden="true">2.2.1.</strong> Installation via chroot (x86/x86_64/aarch64)</a></li><li class="chapter-item expanded "><a href="../../installation/guides/fde.html" class="active"><strong aria-hidden="true">2.2.2.</strong> Full Disk Encryption</a></li><li class="chapter-item expanded "><a href="../../installation/guides/zfs.html"><strong aria-hidden="true">2.2.3.</strong> Root on ZFS</a></li><li class="chapter-item expanded "><a href="../../installation/guides/arm-devices/index.html"><strong aria-hidden="true">2.2.4.</strong> ARM Devices</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../installation/guides/arm-devices/platforms.html"><strong aria-hidden="true">2.2.4.1.</strong> Supported Platforms</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../installation/musl.html"><strong aria-hidden="true">2.3.</strong> musl</a></li></ol></li><li class="chapter-item expanded "><a href="../../config/index.html"><strong aria-hidden="true">3.</strong> Configuration</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../config/package-documentation/index.html"><strong aria-hidden="true">3.1.</strong> Package Documentation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../config/package-documentation/man.html"><strong aria-hidden="true">3.1.1.</strong> Manual Pages</a></li></ol></li><li class="chapter-item expanded "><a href="../../config/firmware.html"><strong aria-hidden="true">3.2.</strong> Firmware</a></li><li class="chapter-item expanded "><a href="../../config/locales.html"><strong aria-hidden="true">3.3.</strong> Locales and Translations</a></li><li class="chapter-item expanded "><a href="../../config/users-and-groups.html"><strong aria-hidden="true">3.4.</strong> Users and Groups</a></li><li class="chapter-item expanded "><a href="../../config/services/index.html"><strong aria-hidden="true">3.5.</strong> Services and Daemons - runit</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../config/services/user-services.html"><strong aria-hidden="true">3.5.1.</strong> Per-User Services</a></li><li class="chapter-item expanded "><a href="../../config/services/logging.html"><strong aria-hidden="true">3.5.2.</strong> Logging</a></li></ol></li><li class="chapter-item expanded "><a href="../../config/rc-files.html"><strong aria-hidden="true">3.6.</strong> rc.conf, rc.local and rc.shutdown</a></li><li class="chapter-item expanded "><a href="../../config/cron.html"><strong aria-hidden="true">3.7.</strong> Cron</a></li><li class="chapter-item expanded "><a href="../../config/ssd.html"><strong aria-hidden="true">3.8.</strong> Solid State Drives</a></li><li class="chapter-item expanded "><a href="../../config/security/index.html"><strong aria-hidden="true">3.9.</strong> Security</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../config/security/apparmor.html"><strong aria-hidden="true">3.9.1.</strong> AppArmor</a></li></ol></li><li class="chapter-item expanded "><a href="../../config/date-time.html"><strong aria-hidden="true">3.10.</strong> Date and Time</a></li><li class="chapter-item expanded "><a href="../../config/kernel.html"><strong aria-hidden="true">3.11.</strong> Kernel</a></li><li class="chapter-item expanded "><a href="../../config/power-management.html"><strong aria-hidden="true">3.12.</strong> Power Management</a></li><li class="chapter-item expanded "><a href="../../config/network/index.html"><strong aria-hidden="true">3.13.</strong> Network</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../config/network/firewalls.html"><strong aria-hidden="true">3.13.1.</strong> Firewalls</a></li><li class="chapter-item expanded "><a href="../../config/network/wpa_supplicant.html"><strong aria-hidden="true">3.13.2.</strong> wpa_supplicant</a></li><li class="chapter-item expanded "><a href="../../config/network/iwd.html"><strong aria-hidden="true">3.13.3.</strong> IWD</a></li><li class="chapter-item expanded "><a href="../../config/network/networkmanager.html"><strong aria-hidden="true">3.13.4.</strong> NetworkManager</a></li><li class="chapter-item expanded "><a href="../../config/network/connman.html"><strong aria-hidden="true">3.13.5.</strong> ConnMan</a></li></ol></li><li class="chapter-item expanded "><a href="../../config/network-filesystems.html"><strong aria-hidden="true">3.14.</strong> Network Filesystems</a></li><li class="chapter-item expanded "><a href="../../config/session-management.html"><strong aria-hidden="true">3.15.</strong> Session and Seat Management</a></li><li class="chapter-item expanded "><a href="../../config/graphical-session/index.html"><strong aria-hidden="true">3.16.</strong> Graphical Session</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../config/graphical-session/graphics-drivers/index.html"><strong aria-hidden="true">3.16.1.</strong> Graphics Drivers</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../config/graphical-session/graphics-drivers/amd.html"><strong aria-hidden="true">3.16.1.1.</strong> AMD or ATI</a></li><li class="chapter-item expanded "><a href="../../config/graphical-session/graphics-drivers/intel.html"><strong aria-hidden="true">3.16.1.2.</strong> Intel</a></li><li class="chapter-item expanded "><a href="../../config/graphical-session/graphics-drivers/nvidia.html"><strong aria-hidden="true">3.16.1.3.</strong> NVIDIA</a></li><li class="chapter-item expanded "><a href="../../config/graphical-session/graphics-drivers/optimus.html"><strong aria-hidden="true">3.16.1.4.</strong> NVIDIA Optimus</a></li></ol></li><li class="chapter-item expanded "><a href="../../config/graphical-session/xorg.html"><strong aria-hidden="true">3.16.2.</strong> Xorg</a></li><li class="chapter-item expanded "><a href="../../config/graphical-session/wayland.html"><strong aria-hidden="true">3.16.3.</strong> Wayland</a></li><li class="chapter-item expanded "><a href="../../config/graphical-session/fonts.html"><strong aria-hidden="true">3.16.4.</strong> Fonts</a></li><li class="chapter-item expanded "><a href="../../config/graphical-session/icons.html"><strong aria-hidden="true">3.16.5.</strong> Icons</a></li><li class="chapter-item expanded "><a href="../../config/graphical-session/gnome.html"><strong aria-hidden="true">3.16.6.</strong> GNOME</a></li><li class="chapter-item expanded "><a href="../../config/graphical-session/kde.html"><strong aria-hidden="true">3.16.7.</strong> KDE</a></li></ol></li><li class="chapter-item expanded "><a href="../../config/media/index.html"><strong aria-hidden="true">3.17.</strong> Multimedia</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../config/media/alsa.html"><strong aria-hidden="true">3.17.1.</strong> ALSA</a></li><li class="chapter-item expanded "><a href="../../config/media/pipewire.html"><strong aria-hidden="true">3.17.2.</strong> PipeWire</a></li><li class="chapter-item expanded "><a href="../../config/media/pulseaudio.html"><strong aria-hidden="true">3.17.3.</strong> PulseAudio</a></li><li class="chapter-item expanded "><a href="../../config/media/sndio.html"><strong aria-hidden="true">3.17.4.</strong> sndio</a></li></ol></li><li class="chapter-item expanded "><a href="../../config/bluetooth.html"><strong aria-hidden="true">3.18.</strong> Bluetooth</a></li><li class="chapter-item expanded "><a href="../../config/texlive.html"><strong aria-hidden="true">3.19.</strong> TeX Live</a></li><li class="chapter-item expanded "><a href="../../config/external-applications.html"><strong aria-hidden="true">3.20.</strong> External Applications</a></li><li class="chapter-item expanded "><a href="../../config/print/index.html"><strong aria-hidden="true">3.21.</strong> Printing</a></li><li class="chapter-item expanded "><a href="../../config/containers-and-vms/index.html"><strong aria-hidden="true">3.22.</strong> Containers and Virtual Machines</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../config/containers-and-vms/chroot.html"><strong aria-hidden="true">3.22.1.</strong> Chroots and Containers</a></li><li class="chapter-item expanded "><a href="../../config/containers-and-vms/libvirt.html"><strong aria-hidden="true">3.22.2.</strong> libvirt</a></li><li class="chapter-item expanded "><a href="../../config/containers-and-vms/lxc.html"><strong aria-hidden="true">3.22.3.</strong> LXC</a></li></ol></li><li class="chapter-item expanded "><a href="../../config/openpgp.html"><strong aria-hidden="true">3.23.</strong> OpenPGP</a></li><li class="chapter-item expanded "><a href="../../config/php.html"><strong aria-hidden="true">3.24.</strong> PHP</a></li></ol></li><li class="chapter-item expanded "><a href="../../xbps/index.html"><strong aria-hidden="true">4.</strong> XBPS Package Manager</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../xbps/advanced-usage.html"><strong aria-hidden="true">4.1.</strong> Advanced Usage</a></li><li class="chapter-item expanded "><a href="../../xbps/repositories/index.html"><strong aria-hidden="true">4.2.</strong> Repositories</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../xbps/repositories/mirrors/index.html"><strong aria-hidden="true">4.2.1.</strong> Mirrors</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../xbps/repositories/mirrors/changing.html"><strong aria-hidden="true">4.2.1.1.</strong> Changing Mirrors</a></li><li class="chapter-item expanded "><a href="../../xbps/repositories/mirrors/tor.html"><strong aria-hidden="true">4.2.1.2.</strong> Using Tor Mirrors</a></li></ol></li><li class="chapter-item expanded "><a href="../../xbps/repositories/restricted.html"><strong aria-hidden="true">4.2.2.</strong> Restricted Packages</a></li><li class="chapter-item expanded "><a href="../../xbps/repositories/custom.html"><strong aria-hidden="true">4.2.3.</strong> Custom Repositories</a></li><li class="chapter-item expanded "><a href="../../xbps/repositories/signing.html"><strong aria-hidden="true">4.2.4.</strong> Signing Repositories</a></li></ol></li><li class="chapter-item expanded "><a href="../../xbps/troubleshooting/index.html"><strong aria-hidden="true">4.3.</strong> Troubleshooting XBPS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../xbps/troubleshooting/common-issues.html"><strong aria-hidden="true">4.3.1.</strong> Common Issues</a></li><li class="chapter-item expanded "><a href="../../xbps/troubleshooting/static.html"><strong aria-hidden="true">4.3.2.</strong> Static XBPS</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../contributing/index.html"><strong aria-hidden="true">5.</strong> Contributing</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../contributing/evolution-docs/index.html"><strong aria-hidden="true">5.1.</strong> Contributing To evolution-docs</a></li></ol></li></ol>
+			</nav>
+
+			<!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+			<script type="text/javascript">
+				document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+	document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+	Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+		link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+	});
+			</script>
+
+			<div id="page-wrapper">
+				<div id="search-wrapper" class="hidden">
+					<form id="searchbar-outer" class="searchbar-outer">
+						<input type="search" name="search" id="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+					</form>
+					<div id="searchresults-outer" class="searchresults-outer hidden">
+						<div id="searchresults-header" class="searchresults-header"></div>
+						<ul id="searchresults">
+						</ul>
+					</div>
+				</div>
+
+				<main id="main">
+					<h1 id="full-disk-encryption"><a class="header" href="#full-disk-encryption">Full Disk Encryption</a></h1>
+<p><strong>Warning</strong>: Your drive's block device and other information may be different,
+so make sure it is correct.</p>
+<h2 id="partitioning"><a class="header" href="#partitioning">Partitioning</a></h2>
+<p>Boot a live image and login.</p>
+<p>Create a single physical partition on the disk using
+<a href="https://man.voidlinux.org/cfdisk">cfdisk</a>, marking it as bootable. For an MBR
+system, the partition layout should look like the following.</p>
+<pre><code># fdisk -l /dev/sda
+Disk /dev/sda: 48 GiB, 51539607552 bytes, 100663296 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: dos
+Disk identifier: 0x4d532059
+
+Device     Boot Start       End   Sectors Size Id Type
+/dev/sda1  *     2048 100663295 100661248  48G 83 Linux
+</code></pre>
+<p>UEFI systems will need the disk to have a GPT disklabel and an EFI system
+partition. The required size for this may vary depending on needs, but 100M
+should be enough for most cases. For an EFI system, the partition layout should
+look like the following.</p>
+<pre><code># fdisk -l /dev/sda
+Disk /dev/sda: 48 GiB, 51539607552 bytes, 100663296 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: gpt
+Disk identifier: EE4F2A1A-8E7F-48CA-B3D0-BD7A01F6D8A0
+
+Device      Start       End   Sectors  Size Type
+/dev/sda1    2048    264191    262144  128M EFI System
+/dev/sda2  264192 100663262 100399071 47.9G Linux filesystem
+</code></pre>
+<h2 id="encrypted-volume-configuration"><a class="header" href="#encrypted-volume-configuration">Encrypted volume configuration</a></h2>
+<p><a href="https://man.voidlinux.org/cryptsetup.8">Cryptsetup</a> defaults to LUKS2, yet GRUB
+releases before 2.06 only had support for LUKS1.</p>
+<p>LUKS2 is only partially supported by GRUB; specifically, only the PBKDF2 key
+derivation function is
+<a href="https://git.savannah.gnu.org/cgit/grub.git/commit/?id=365e0cc3e7e44151c14dd29514c2f870b49f9755">implemented</a>,
+which is <em>not</em> the default KDF used with LUKS2, that being Argon2i (<a href="https://savannah.gnu.org/bugs/?59409">GRUB Bug
+59409</a>). LUKS encrypted partitions using
+Argon2i (as well as the other KDF) can <em>not</em> be decrypted. For that reason, this
+guide only recommends LUKS1 be used.</p>
+<p>Keep in mind the encrypted volume will be <code>/dev/sda2</code> on EFI systems, since
+<code>/dev/sda1</code> is taken up by the EFI partition.</p>
+<pre><code># cryptsetup luksFormat --type luks1 /dev/sda1
+
+WARNING!
+========
+This will overwrite data on /dev/sda1 irrevocably.
+
+Are you sure? (Type uppercase yes): YES
+Enter passphrase:
+Verify passphrase:
+</code></pre>
+<p>Once the volume is created, it needs to be opened. Replace <code>voidvm</code> with an
+appropriate name. Again, this will be <code>/dev/sda2</code> on EFI systems.</p>
+<pre><code># cryptsetup luksOpen /dev/sda1 voidvm
+Enter passphrase for /dev/sda1:
+</code></pre>
+<p>Once the LUKS container is opened, create the LVM volume group using that
+partition.</p>
+<pre><code># vgcreate voidvm /dev/mapper/voidvm
+  Volume group &quot;voidvm&quot; successfully created
+</code></pre>
+<p>There should now be an empty volume group named <code>voidvm</code>.</p>
+<p>Next, logical volumes need to be created for the volume group. For this example,
+I chose 10G for <code>/</code>, 2G for <code>swap</code>, and will assign the rest to <code>/home</code>.</p>
+<pre><code># lvcreate --name root -L 10G voidvm
+  Logical volume &quot;root&quot; created.
+# lvcreate --name swap -L 2G voidvm
+  Logical volume &quot;swap&quot; created.
+# lvcreate --name home -l 100%FREE voidvm
+  Logical volume &quot;home&quot; created.
+</code></pre>
+<p>Next, create the filesystems. The example below uses XFS as a personal
+preference of the author. Any filesystem <a href="https://www.gnu.org/software/grub/manual/grub/grub.html#Features">supported by
+GRUB</a> will
+work.</p>
+<pre><code># mkfs.xfs -L root /dev/voidvm/root
+meta-data=/dev/voidvm/root       isize=512    agcount=4, agsize=655360 blks
+...
+# mkfs.xfs -L home /dev/voidvm/home
+meta-data=/dev/voidvm/home       isize=512    agcount=4, agsize=2359040 blks
+...
+# mkswap /dev/voidvm/swap
+Setting up swapspace version 1, size = 2 GiB (2147479552 bytes)
+</code></pre>
+<h2 id="system-installation"><a class="header" href="#system-installation">System installation</a></h2>
+<p>Next, setup the chroot and install the base system.</p>
+<pre><code># mount /dev/voidvm/root /mnt
+# mkdir -p /mnt/home
+# mount /dev/voidvm/home /mnt/home
+</code></pre>
+<p>On a UEFI system, the EFI system partition also needs to be mounted.</p>
+<pre><code># mkfs.vfat /dev/sda1
+# mkdir -p /mnt/boot/efi
+# mount /dev/sda1 /mnt/boot/efi
+</code></pre>
+<p>Copy the RSA keys from the installation medium to the target root directory:</p>
+<pre><code># mkdir -p /mnt/var/db/xbps/keys
+# cp /var/db/xbps/keys/* /mnt/var/db/xbps/keys/
+</code></pre>
+<p>Before we enter the chroot to finish up configuration, we do the actual install.
+Do not forget to use the <a href="../../xbps/repositories/index.html#the-main-repository">appropriate repository
+URL</a> for the type of
+system you wish to install.</p>
+<pre><code># xbps-install -Sy -R https://repo-default.voidlinux.org/current -r /mnt base-system lvm2 cryptsetup grub
+[*] Updating `https://repo-default.voidlinux.org/current/x86_64-repodata' ...
+x86_64-repodata: 1661KB [avg rate: 2257KB/s]
+130 packages will be downloaded:
+...
+</code></pre>
+<p>UEFI systems will have a slightly different package selection. The installation
+command for a UEFI system will be as follows.</p>
+<pre><code># xbps-install -Sy -R https://repo-default.voidlinux.org/current -r /mnt base-system cryptsetup grub-x86_64-efi lvm2
+</code></pre>
+<p>When it's done, we can enter the chroot with
+<a href="https://man.voidlinux.org/xchroot.1"><code>xchroot(1)</code></a> (from <code>xtools</code>) and finish
+up the configuration. Alternatively, entering the chroot can be <a href="../../config/containers-and-vms/chroot.html#manual-method">done
+manually</a>.</p>
+<pre><code># xchroot /mnt
+[xchroot /mnt] # chown root:root /
+[xchroot /mnt] # chmod 755 /
+[xchroot /mnt] # passwd root
+[xchroot /mnt] # echo voidvm &gt; /etc/hostname
+</code></pre>
+<p>and, for glibc systems only:</p>
+<pre><code>[xchroot /mnt] # echo &quot;LANG=en_US.UTF-8&quot; &gt; /etc/locale.conf
+[xchroot /mnt] # echo &quot;en_US.UTF-8 UTF-8&quot; &gt;&gt; /etc/default/libc-locales
+[xchroot /mnt] # xbps-reconfigure -f glibc-locales
+</code></pre>
+<h3 id="filesystem-configuration"><a class="header" href="#filesystem-configuration">Filesystem configuration</a></h3>
+<p>The next step is editing <code>/etc/fstab</code>, which will depend on how you configured
+and named your filesystems. For this example, the file should look like this:</p>
+<pre><code># &lt;file system&gt;   &lt;dir&gt; &lt;type&gt;  &lt;options&gt;             &lt;dump&gt;  &lt;pass&gt;
+tmpfs             /tmp  tmpfs   defaults,nosuid,nodev 0       0
+/dev/voidvm/root  /     xfs     defaults              0       0
+/dev/voidvm/home  /home xfs     defaults              0       0
+/dev/voidvm/swap  swap  swap    defaults              0       0
+</code></pre>
+<p>UEFI systems will also have an entry for the EFI system partition.</p>
+<pre><code>/dev/sda1	/boot/efi	vfat	defaults	0	0
+</code></pre>
+<h3 id="grub-configuration"><a class="header" href="#grub-configuration">GRUB configuration</a></h3>
+<p>Next, configure GRUB to be able to unlock the filesystem. Add the following line
+to <code>/etc/default/grub</code>:</p>
+<pre><code>GRUB_ENABLE_CRYPTODISK=y
+</code></pre>
+<p>Next, the kernel needs to be configured to find the encrypted device. First,
+find the UUID of the device.</p>
+<pre><code>[xchroot /mnt] # blkid -o value -s UUID /dev/sda1
+135f3c06-26a0-437f-a05e-287b036440a4
+</code></pre>
+<p>Edit the <code>GRUB_CMDLINE_LINUX_DEFAULT=</code> line in <code>/etc/default/grub</code> and add
+<code>rd.lvm.vg=voidvm rd.luks.uuid=&lt;UUID&gt;</code> to it. Make sure the UUID matches the one
+for the <code>sda1</code> device found in the output of the
+<a href="https://man.voidlinux.org/blkid.8">blkid(8)</a> command above. This will be
+<code>/dev/sda2</code> on EFI systems.</p>
+<h2 id="luks-key-setup"><a class="header" href="#luks-key-setup">LUKS key setup</a></h2>
+<p>And now to avoid having to enter the password twice on boot, a key will be
+configured to automatically unlock the encrypted volume on boot. First, generate
+a random key.</p>
+<pre><code>[xchroot /mnt] # dd bs=1 count=64 if=/dev/urandom of=/boot/volume.key
+64+0 records in
+64+0 records out
+64 bytes copied, 0.000662757 s, 96.6 kB/s
+</code></pre>
+<p>Next, add the key to the encrypted volume.</p>
+<pre><code>[xchroot /mnt] # cryptsetup luksAddKey /dev/sda1 /boot/volume.key
+Enter any existing passphrase:
+</code></pre>
+<p>Change the permissions to protect the generated key.</p>
+<pre><code>[xchroot /mnt] # chmod 000 /boot/volume.key
+[xchroot /mnt] # chmod -R g-rwx,o-rwx /boot
+</code></pre>
+<p>This keyfile also needs to be added to <code>/etc/crypttab</code>. Again, this will be
+<code>/dev/sda2</code> on EFI systems.</p>
+<pre><code>voidvm   /dev/sda1   /boot/volume.key   luks
+</code></pre>
+<p>And then the keyfile and <code>crypttab</code> need to be included in the initramfs. Create
+a new file at <code>/etc/dracut.conf.d/10-crypt.conf</code> with the following line:</p>
+<pre><code>install_items+=&quot; /boot/volume.key /etc/crypttab &quot;
+</code></pre>
+<h2 id="complete-system-installation"><a class="header" href="#complete-system-installation">Complete system installation</a></h2>
+<p>Next, install the boot loader to the disk.</p>
+<pre><code>[xchroot /mnt] # grub-install /dev/sda
+</code></pre>
+<p>Ensure an initramfs is generated:</p>
+<pre><code>[xchroot /mnt] # xbps-reconfigure -fa
+</code></pre>
+<p>Exit the <code>chroot</code>, unmount the filesystems, and reboot the system.</p>
+<pre><code>[xchroot /mnt] # exit
+# umount -R /mnt
+# reboot
+</code></pre>
+
+				</main>
+
+				<nav id="nav-wide-wrapper" aria-label="Page navigation">
+						<a href="../../installation/guides/chroot.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+								<path d="M4 10l9 9 1.4-1.5L7 10l7.4-7.5L13 1z"/>
+							</svg>
+						</a>
+
+						<a href="../../installation/guides/zfs.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+								<path d="M7 1L5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"/>
+							</svg>
+						</a>
+				</nav>
+			</div>
+		</div>
+
+
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+  <script>
+    // Check if a dark mode cookie exists, and apply dark mode if it does
+    if (getCookie("darkMode") === "true") {
+      applyDarkMode();
+    }
+
+    function toggleDarkMode() {
+      if (getCookie("darkMode") === "true") {
+        // Disable dark mode
+        setCookie("darkMode", "false", 365);
+        applyLightMode();
+      } else {
+        // Enable dark mode
+        setCookie("darkMode", "true", 365);
+        applyDarkMode();
+      }
+    }
+
+    function applyDarkMode() {
+      document.body.classList.add("dark-mode");
+    }
+
+    function applyLightMode() {
+      document.body.classList.remove("dark-mode");
+    }
+
+    // Helper functions for handling cookies
+    function setCookie(name, value, days) {
+      var expires = "";
+      if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+      }
+      document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    }
+
+    function getCookie(name) {
+      var nameEQ = name + "=";
+      var ca = document.cookie.split(';');
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+      }
+      return null;
+    }
+  </script>
+</body>
+</html>
+

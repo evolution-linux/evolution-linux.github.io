@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="EvolutionOS - Redefining speed" property="og:title">
+  <meta content="This is the homepage for EvolutionOS, the Linux Distro that redefines speed. It strives to be minimal yet speedy, with only the best handpicked components. Check it out here!" property="og:description">
+  <meta content="EvolutionOS Homepage" property="og:site_name">
+  <meta content="https://evolution-linux.github.io/evolutionos.png" property="og:image">
+
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <title>EvolutionOS Homepage</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+      background-color: #f2f2f2;
+    }
+    
+    .title-bar {
+      max-height: 60px;
+      background-color: #00cc66;
+      padding: 5px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+    
+    .title-bar img {
+      max-height: 40px;
+      margin-right: 10px;
+      margin-left: 10px;
+    }
+    
+    .title-bar .buttons {
+      margin-right: 0px;
+    }
+    
+    .title-bar a {
+      background-color: #00cc66;
+      color: #fff;
+      padding: 18px 10px;
+      font-size: 20px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    
+    .title-bar a:hover {
+      background-color: #008040;
+    }
+    
+    .title-bar b {
+      background-color: #00cc66;
+      color: #fff;
+      padding: 7px 0px;
+      font-size: 20px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    
+    .title-bar b:hover {
+      background-color: #008040;
+    }
+    
+    h1 {
+      color: #333;
+      font-size: 40px;
+      margin-top: 10px;
+    }
+    
+    p {
+      color: #666;
+      font-size: 20px;
+      line-height: 1.5;
+      margin-bottom: 40px;
+    }
+    
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .logo {
+      max-width: 200px;
+      margin-bottom: 20px;
+      margin-top: 95px;
+    }
+    
+    .download-button {
+      background-color: #00cc66;
+      color: #fff;
+      padding: 15px 30px;
+      font-size: 24px;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    
+    .download-button:hover {
+      background-color: #008040;
+    }
+    
+    /* Additional styles for dark mode */
+    .dark-mode {
+      background-color: #222;
+      color: #fff;
+    }
+
+    .title-bar button.dark-mode-button {
+      background-color: #00cc66;
+      color: #fff;
+      padding: 18px 20px;
+      font-size: 20px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .title-bar button.dark-mode-button:hover {
+      background-color: #008040;
+    }
+
+    body.dark-mode h1 {
+      color: #8c8c8c;
+    }
+  </style>
+</head>
+<body>
+  <div class="title-bar">
+    <b href="/">
+      <img src="/evolutionos.png" alt="EvolutionOS Logo">
+    </b>
+    <div class="buttons">
+      <a href="/download">Download</a>
+      <a href="/wiki">Wiki</a>
+      <a href="https://github.com/evolution-linux/evolution-packages">Source Code</a>
+      <a id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+					<path d="M1 3v2h18V3zm0 8h18V9H1zm0 6h18v-2H1z"/>
+				</svg>
+			</a>
+			<a id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+					<path d="M7.5 13c3.04 0 5.5-2.46 5.5-5.5S10.54 2 7.5 2 2 4.46 2 7.5 4.46 13 7.5 13zm4.55.46C10.79 14.43 9.21 15 7.5 15 3.36 15 0 11.64 0 7.5S3.36 0 7.5 0C11.64 0 15 3.36 15 7.5c0 1.71-.57 3.29-1.54 4.55l6.49 6.49-1.41 1.41-6.49-6.49z"/>
+				</svg>
+			</a>
+      <!-- New button for toggling dark mode -->
+      a<button onclick="toggleDarkMode()" class="dark-mode-button">Toggle Dark Mode</button>
+    </div>
+  </div>
+		<div id="content">
+
+			<!-- Hide / unhide sidebar before it is displayed -->
+			<script type="text/javascript">
+				var html = document.querySelector('html');
+				var sidebar = 'hidden';
+				if (document.body.clientWidth >= 1080) {
+					try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+					sidebar = sidebar || 'visible';
+				}
+				html.classList.remove('sidebar-visible');
+				html.classList.add("sidebar-" + sidebar);
+			</script>
+
+			<nav id="sidebar" aria-label="Table of contents">
+				<ol class="chapter"><li class="chapter-item expanded "><a href="../../about/index.html"><strong aria-hidden="true">1.</strong> About</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../about/history.html"><strong aria-hidden="true">1.1.</strong> History</a></li><li class="chapter-item expanded "><a href="../../about/about-this-handbook.html"><strong aria-hidden="true">1.2.</strong> About This Handbook</a></li><li class="chapter-item expanded "><a href="../../about/infradocs.html"><strong aria-hidden="true">1.3.</strong> InfraDocs</a></li></ol></li><li class="chapter-item expanded "><a href="../../installation/index.html"><strong aria-hidden="true">2.</strong> Installation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../installation/live-images/index.html"><strong aria-hidden="true">2.1.</strong> Live Installers</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../installation/live-images/prep.html"><strong aria-hidden="true">2.1.1.</strong> Prepare Installation Media</a></li><li class="chapter-item expanded "><a href="../../installation/live-images/partitions.html"><strong aria-hidden="true">2.1.2.</strong> Partitioning Notes</a></li><li class="chapter-item expanded "><a href="../../installation/live-images/guide.html"><strong aria-hidden="true">2.1.3.</strong> Installation Guide</a></li></ol></li><li class="chapter-item expanded "><a href="../../installation/guides/index.html"><strong aria-hidden="true">2.2.</strong> Advanced Installation Guides</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../installation/guides/chroot.html"><strong aria-hidden="true">2.2.1.</strong> Installation via chroot (x86/x86_64/aarch64)</a></li><li class="chapter-item expanded "><a href="../../installation/guides/fde.html"><strong aria-hidden="true">2.2.2.</strong> Full Disk Encryption</a></li><li class="chapter-item expanded "><a href="../../installation/guides/zfs.html" class="active"><strong aria-hidden="true">2.2.3.</strong> Root on ZFS</a></li><li class="chapter-item expanded "><a href="../../installation/guides/arm-devices/index.html"><strong aria-hidden="true">2.2.4.</strong> ARM Devices</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../installation/guides/arm-devices/platforms.html"><strong aria-hidden="true">2.2.4.1.</strong> Supported Platforms</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../installation/musl.html"><strong aria-hidden="true">2.3.</strong> musl</a></li></ol></li><li class="chapter-item expanded "><a href="../../config/index.html"><strong aria-hidden="true">3.</strong> Configuration</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../config/package-documentation/index.html"><strong aria-hidden="true">3.1.</strong> Package Documentation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../config/package-documentation/man.html"><strong aria-hidden="true">3.1.1.</strong> Manual Pages</a></li></ol></li><li class="chapter-item expanded "><a href="../../config/firmware.html"><strong aria-hidden="true">3.2.</strong> Firmware</a></li><li class="chapter-item expanded "><a href="../../config/locales.html"><strong aria-hidden="true">3.3.</strong> Locales and Translations</a></li><li class="chapter-item expanded "><a href="../../config/users-and-groups.html"><strong aria-hidden="true">3.4.</strong> Users and Groups</a></li><li class="chapter-item expanded "><a href="../../config/services/index.html"><strong aria-hidden="true">3.5.</strong> Services and Daemons - runit</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../config/services/user-services.html"><strong aria-hidden="true">3.5.1.</strong> Per-User Services</a></li><li class="chapter-item expanded "><a href="../../config/services/logging.html"><strong aria-hidden="true">3.5.2.</strong> Logging</a></li></ol></li><li class="chapter-item expanded "><a href="../../config/rc-files.html"><strong aria-hidden="true">3.6.</strong> rc.conf, rc.local and rc.shutdown</a></li><li class="chapter-item expanded "><a href="../../config/cron.html"><strong aria-hidden="true">3.7.</strong> Cron</a></li><li class="chapter-item expanded "><a href="../../config/ssd.html"><strong aria-hidden="true">3.8.</strong> Solid State Drives</a></li><li class="chapter-item expanded "><a href="../../config/security/index.html"><strong aria-hidden="true">3.9.</strong> Security</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../config/security/apparmor.html"><strong aria-hidden="true">3.9.1.</strong> AppArmor</a></li></ol></li><li class="chapter-item expanded "><a href="../../config/date-time.html"><strong aria-hidden="true">3.10.</strong> Date and Time</a></li><li class="chapter-item expanded "><a href="../../config/kernel.html"><strong aria-hidden="true">3.11.</strong> Kernel</a></li><li class="chapter-item expanded "><a href="../../config/power-management.html"><strong aria-hidden="true">3.12.</strong> Power Management</a></li><li class="chapter-item expanded "><a href="../../config/network/index.html"><strong aria-hidden="true">3.13.</strong> Network</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../config/network/firewalls.html"><strong aria-hidden="true">3.13.1.</strong> Firewalls</a></li><li class="chapter-item expanded "><a href="../../config/network/wpa_supplicant.html"><strong aria-hidden="true">3.13.2.</strong> wpa_supplicant</a></li><li class="chapter-item expanded "><a href="../../config/network/iwd.html"><strong aria-hidden="true">3.13.3.</strong> IWD</a></li><li class="chapter-item expanded "><a href="../../config/network/networkmanager.html"><strong aria-hidden="true">3.13.4.</strong> NetworkManager</a></li><li class="chapter-item expanded "><a href="../../config/network/connman.html"><strong aria-hidden="true">3.13.5.</strong> ConnMan</a></li></ol></li><li class="chapter-item expanded "><a href="../../config/network-filesystems.html"><strong aria-hidden="true">3.14.</strong> Network Filesystems</a></li><li class="chapter-item expanded "><a href="../../config/session-management.html"><strong aria-hidden="true">3.15.</strong> Session and Seat Management</a></li><li class="chapter-item expanded "><a href="../../config/graphical-session/index.html"><strong aria-hidden="true">3.16.</strong> Graphical Session</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../config/graphical-session/graphics-drivers/index.html"><strong aria-hidden="true">3.16.1.</strong> Graphics Drivers</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../config/graphical-session/graphics-drivers/amd.html"><strong aria-hidden="true">3.16.1.1.</strong> AMD or ATI</a></li><li class="chapter-item expanded "><a href="../../config/graphical-session/graphics-drivers/intel.html"><strong aria-hidden="true">3.16.1.2.</strong> Intel</a></li><li class="chapter-item expanded "><a href="../../config/graphical-session/graphics-drivers/nvidia.html"><strong aria-hidden="true">3.16.1.3.</strong> NVIDIA</a></li><li class="chapter-item expanded "><a href="../../config/graphical-session/graphics-drivers/optimus.html"><strong aria-hidden="true">3.16.1.4.</strong> NVIDIA Optimus</a></li></ol></li><li class="chapter-item expanded "><a href="../../config/graphical-session/xorg.html"><strong aria-hidden="true">3.16.2.</strong> Xorg</a></li><li class="chapter-item expanded "><a href="../../config/graphical-session/wayland.html"><strong aria-hidden="true">3.16.3.</strong> Wayland</a></li><li class="chapter-item expanded "><a href="../../config/graphical-session/fonts.html"><strong aria-hidden="true">3.16.4.</strong> Fonts</a></li><li class="chapter-item expanded "><a href="../../config/graphical-session/icons.html"><strong aria-hidden="true">3.16.5.</strong> Icons</a></li><li class="chapter-item expanded "><a href="../../config/graphical-session/gnome.html"><strong aria-hidden="true">3.16.6.</strong> GNOME</a></li><li class="chapter-item expanded "><a href="../../config/graphical-session/kde.html"><strong aria-hidden="true">3.16.7.</strong> KDE</a></li></ol></li><li class="chapter-item expanded "><a href="../../config/media/index.html"><strong aria-hidden="true">3.17.</strong> Multimedia</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../config/media/alsa.html"><strong aria-hidden="true">3.17.1.</strong> ALSA</a></li><li class="chapter-item expanded "><a href="../../config/media/pipewire.html"><strong aria-hidden="true">3.17.2.</strong> PipeWire</a></li><li class="chapter-item expanded "><a href="../../config/media/pulseaudio.html"><strong aria-hidden="true">3.17.3.</strong> PulseAudio</a></li><li class="chapter-item expanded "><a href="../../config/media/sndio.html"><strong aria-hidden="true">3.17.4.</strong> sndio</a></li></ol></li><li class="chapter-item expanded "><a href="../../config/bluetooth.html"><strong aria-hidden="true">3.18.</strong> Bluetooth</a></li><li class="chapter-item expanded "><a href="../../config/texlive.html"><strong aria-hidden="true">3.19.</strong> TeX Live</a></li><li class="chapter-item expanded "><a href="../../config/external-applications.html"><strong aria-hidden="true">3.20.</strong> External Applications</a></li><li class="chapter-item expanded "><a href="../../config/print/index.html"><strong aria-hidden="true">3.21.</strong> Printing</a></li><li class="chapter-item expanded "><a href="../../config/containers-and-vms/index.html"><strong aria-hidden="true">3.22.</strong> Containers and Virtual Machines</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../config/containers-and-vms/chroot.html"><strong aria-hidden="true">3.22.1.</strong> Chroots and Containers</a></li><li class="chapter-item expanded "><a href="../../config/containers-and-vms/libvirt.html"><strong aria-hidden="true">3.22.2.</strong> libvirt</a></li><li class="chapter-item expanded "><a href="../../config/containers-and-vms/lxc.html"><strong aria-hidden="true">3.22.3.</strong> LXC</a></li></ol></li><li class="chapter-item expanded "><a href="../../config/openpgp.html"><strong aria-hidden="true">3.23.</strong> OpenPGP</a></li><li class="chapter-item expanded "><a href="../../config/php.html"><strong aria-hidden="true">3.24.</strong> PHP</a></li></ol></li><li class="chapter-item expanded "><a href="../../xbps/index.html"><strong aria-hidden="true">4.</strong> XBPS Package Manager</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../xbps/advanced-usage.html"><strong aria-hidden="true">4.1.</strong> Advanced Usage</a></li><li class="chapter-item expanded "><a href="../../xbps/repositories/index.html"><strong aria-hidden="true">4.2.</strong> Repositories</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../xbps/repositories/mirrors/index.html"><strong aria-hidden="true">4.2.1.</strong> Mirrors</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../xbps/repositories/mirrors/changing.html"><strong aria-hidden="true">4.2.1.1.</strong> Changing Mirrors</a></li><li class="chapter-item expanded "><a href="../../xbps/repositories/mirrors/tor.html"><strong aria-hidden="true">4.2.1.2.</strong> Using Tor Mirrors</a></li></ol></li><li class="chapter-item expanded "><a href="../../xbps/repositories/restricted.html"><strong aria-hidden="true">4.2.2.</strong> Restricted Packages</a></li><li class="chapter-item expanded "><a href="../../xbps/repositories/custom.html"><strong aria-hidden="true">4.2.3.</strong> Custom Repositories</a></li><li class="chapter-item expanded "><a href="../../xbps/repositories/signing.html"><strong aria-hidden="true">4.2.4.</strong> Signing Repositories</a></li></ol></li><li class="chapter-item expanded "><a href="../../xbps/troubleshooting/index.html"><strong aria-hidden="true">4.3.</strong> Troubleshooting XBPS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../xbps/troubleshooting/common-issues.html"><strong aria-hidden="true">4.3.1.</strong> Common Issues</a></li><li class="chapter-item expanded "><a href="../../xbps/troubleshooting/static.html"><strong aria-hidden="true">4.3.2.</strong> Static XBPS</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../contributing/index.html"><strong aria-hidden="true">5.</strong> Contributing</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../contributing/evolution-docs/index.html"><strong aria-hidden="true">5.1.</strong> Contributing To evolution-docs</a></li></ol></li></ol>
+			</nav>
+
+			<!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+			<script type="text/javascript">
+				document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+	document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+	Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+		link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+	});
+			</script>
+
+			<div id="page-wrapper">
+				<div id="search-wrapper" class="hidden">
+					<form id="searchbar-outer" class="searchbar-outer">
+						<input type="search" name="search" id="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+					</form>
+					<div id="searchresults-outer" class="searchresults-outer hidden">
+						<div id="searchresults-header" class="searchresults-header"></div>
+						<ul id="searchresults">
+						</ul>
+					</div>
+				</div>
+
+				<main id="main">
+					<h1 id="installing-evolutionos-on-a-zfs-root"><a class="header" href="#installing-evolutionos-on-a-zfs-root">Installing EvolutionOS on a ZFS Root</a></h1>
+<p>Because the EvolutionOS installer does not support ZFS, it is necessary to install via
+chroot. Aside from a few caveats regarding bootloader and initramfs support,
+installing EvolutionOS on a ZFS root filesystem is not significantly different from any
+other advanced installation. <a href="https://zfsbootmenu.org">ZFSBootMenu</a> is a
+bootloader designed from the ground up to support booting Linux distributions
+directly from a ZFS pool. However, it is also possible to use traditional
+bootloaders with a ZFS root.</p>
+<h2 id="zfsbootmenu"><a class="header" href="#zfsbootmenu">ZFSBootMenu</a></h2>
+<p>ZFSBootMenu supports native ZFS encryption, offers a convenient recovery 
+environment that can be used to clone prior snapshots or perform advanced 
+manipulation in a pre-boot environment, and will support booting from any 
+pool that is importable by modern ZFS drivers. The ZFSBootMenu documentation 
+offers, among other content, several <a href="https://docs.zfsbootmenu.org/en/latest/guides/void-linux.html">step-by-step guides</a> for installing a EvolutionOS system from scratch. The <a href="https://docs.zfsbootmenu.org/en/latest/guides/void-linux/uefi.html">UEFI guide</a>
+describes the procedure of bootstrapping a EvolutionOS system for modern systems. For
+legacy BIOS systems, the <a href="https://docs.zfsbootmenu.org/en/latest/guides/void-linux/syslinux-mbr.html">syslinux guide</a>provides comparable instructions.</p>
+<h2 id="traditional-bootloaders"><a class="header" href="#traditional-bootloaders">Traditional bootloaders</a></h2>
+<p>For those that wish to forego ZFSBootMenu, it is possible to bootstrap a EvolutionOS
+system with another bootloader. To avoid unnecessary complexity, systems that
+use bootloaders other than ZFSBootMenu should plan to use a separate <code>/boot</code>
+that is located on an ext4 or xfs filesystem.</p>
+<h3 id="installation-media"><a class="header" href="#installation-media">Installation media</a></h3>
+<p>Installing EvolutionOS to a ZFS root requires an installation medium with ZFS drivers.
+It is possible to build a custom image from the official
+<a href="https://github.com/evolution-linux/evolution-installer">evolution-installer</a> repository by providing
+the command-line option <code>-p zfs</code> to the <code>mklive.sh</code> script. However, for
+<code>x86_64</code> systems, it may be more convenient to fetch a pre-built
+<a href="https://github.com/leahneukirchen/hrmpf/releases">hrmpf</a> image. These images,
+maintained by the Void Linux projects, are extensions of the standard Void live
+images that include pre-compiled ZFS modules in addition to other useful tools.
+To use these, add https://evolution-linux.github.io to the repository list.</p>
+<h3 id="partition-disks"><a class="header" href="#partition-disks">Partition disks</a></h3>
+<p>After booting a live image with ZFS support, <a href="../live-images/partitions.html">partition your
+disks</a>. The considerations in the partitioning
+guide apply to ZFS installations as well, except that</p>
+<ul>
+<li>The boot partition should be considered necessary unless you intend to use
+<code>gummiboot</code>, which expects that your EFI system partition will be mounted at
+<code>/boot</code>. (This alternative configuration will not be discussed here.)</li>
+<li>Aside from any EFI system partition, GRUB BIOS boot partition, swap or boot
+partitions, the remainder of the disk should typically be a single partition
+with type code <code>BF00</code> that will be dedicated to a single ZFS pool. There is
+no benefit to creating separate ZFS pools on a single disk.</li>
+</ul>
+<p>As needed, format the EFI system partition using
+<a href="https://man.voidlinux.org/mkfs.vfat.8">mkfs.vfat(8)</a> and the the boot partition
+using <a href="https://man.voidlinux.org/mke2fs.8">mke2fs(8)</a> or
+<a href="https://man.voidlinux.org/mkfs.xfs.8">mkfs.xfs(8)</a>. Initialize any swap space
+using <a href="https://man.voidlinux.org">mkswap(8)</a>.</p>
+<blockquote>
+<p>It is possible to put Linux swap space on a ZFS zvol, although there may be a
+risk of deadlocking the kernel when under high memory pressure. This guide
+takes no position on the matter of swap space on a zvol. However, if you wish
+to use suspension-to-disk (hibernation), note that the kernel is not capable
+of resuming from memory images stored on a zvol. You will need a dedicated
+swap partition to use hibernation. Apart from this caveat, there are no
+special considerations required to resume a suspended image when using a ZFS
+root.</p>
+</blockquote>
+<h3 id="create-a-zfs-pool"><a class="header" href="#create-a-zfs-pool">Create a ZFS pool</a></h3>
+<p>Create a ZFS pool on the partition created for it using
+<a href="https://man.voidlinux.org/zpool.8">zpool(8)</a>. For example, to create a pool on
+<code>/dev/disk/by-id/wwn-0x5000c500deadbeef-part3</code>:</p>
+<pre><code># zpool create -f -o ashift=12 \
+    -O compression=lz4 \
+    -O acltype=posixacl \
+    -O xattr=sa \
+    -O relatime=on \
+    -o autotrim=on \
+    -m none zroot /dev/disk/by-id/wwn-0x5000c500deadbeef-part3
+</code></pre>
+<p>Adjust the pool (<code>-o</code>) and filesystem (<code>-O</code>) options as desired, and replace the
+partition identifier <code>wwn-0x5000c500deadbeef-part3</code> with that of the actual
+partition to be used.</p>
+<blockquote>
+<p>When adding disks or partitions to ZFS pools, it is generally advisable to
+refer to them by the symbolic links created in <code>/dev/disk/by-id</code> or (on UEFI
+systems) <code>/dev/disk/by-partuuid</code> so that ZFS will identify the right
+partitions even if disk naming should change at some point. Using traditional
+device nodes like <code>/dev/sda3</code> may cause intermittent import failures.</p>
+</blockquote>
+<p>Next, export and re-import the pool with a temporary, alternate root path:</p>
+<pre><code># zpool export zroot
+# zpool import -N -R /mnt zroot
+</code></pre>
+<h3 id="create-initial-filesystems"><a class="header" href="#create-initial-filesystems">Create initial filesystems</a></h3>
+<p>The filesystem layout on your ZFS pool is flexible. However, it is customary to
+put operating system root filesystems (&quot;boot environments&quot;) under a <code>ROOT</code>
+parent:</p>
+<pre><code># zfs create -o mountpoint=none zroot/ROOT
+# zfs create -o mountpoint=/ -o canmount=noauto zroot/ROOT/void
+</code></pre>
+<p>Setting <code>canmount=noauto</code> on filesystems with <code>mountpoint=/</code> is useful because
+it permits the creation of multiple boot environments (which may be clones of a
+common Void installation or contain completely separate distributions) without
+fear that ZFS auto-mounting will attempt to mount one over another.</p>
+<p>To separate user data from the operating system, create a filesystem to store
+home directories:</p>
+<pre><code># zfs create -o mountpoint=/home zroot/home
+</code></pre>
+<p>Other filesystems may be created as desired.</p>
+<h3 id="mount-the-zfs-hierarchy"><a class="header" href="#mount-the-zfs-hierarchy">Mount the ZFS hierarchy</a></h3>
+<p>All ZFS filesystems should be mounted under the <code>/mnt</code> alternate root
+established by the earlier re-import. Mount the manual-only root filesystem
+before allowing ZFS to automatically mount everything else:</p>
+<pre><code># zfs mount zroot/ROOT/void
+# zfs mount -a
+</code></pre>
+<p>At this point, the entire ZFS hierarchy should be mounted and ready for
+installation. To improve boot-time import speed, it is useful to record the
+current pool configuration in a cache file that EvolutionOS will use to avoid walking
+the entire device hierarchy to identify importable pools:</p>
+<pre><code># mkdir -p /mnt/etc/zfs
+# zpool set cachefile=/mnt/etc/zfs/zpool.cache zroot
+</code></pre>
+<p>Mount non-ZFS filesystems at the appropriate places. For example, if <code>/dev/sda2</code>
+holds an ext4 filesystem that should be mounted at <code>/boot</code> and <code>/dev/sda1</code> is
+the EFI system partition:</p>
+<pre><code># mkdir -p /mnt/boot
+# mount /dev/sda2 /mnt/boot
+# mkdir -p /mnt/boot/efi
+# mount /dev/sda1 /mnnt/boot/efi
+</code></pre>
+<h3 id="installation"><a class="header" href="#installation">Installation</a></h3>
+<p>At this point, ordinary installation can proceed from the <a href="https://docs.voidlinux.org/installation/guides/chroot.html#base-installation">&quot;Base Installation&quot;
+section</a>.
+of the standard chroot installation guide. However, before following the
+<a href="./chroot.html#finalization">&quot;Finalization&quot;
+instructions</a>,
+make sure that the <code>zfs</code> package has been installed and <code>dracut</code> is configured
+to identify a ZFS root filesystem:</p>
+<pre><code>[xchroot /mnt] # mkdir -p /etc/dracut.conf.d
+[xchroot /mnt] # cat &gt; /etc/dracut.conf.d/zol.conf &lt;&lt;EOF
+nofsck=&quot;yes&quot;
+add_dracutmodules+=&quot; zfs &quot;
+omit_dracutmodules+=&quot; btrfs resume &quot;
+EOF
+[xchroot /mnt] # xbps-install zfs
+</code></pre>
+<p>Finally, follow the &quot;Finalization&quot; instructions and reboot into your new system.</p>
+
+				</main>
+
+				<nav id="nav-wide-wrapper" aria-label="Page navigation">
+						<a href="../../installation/guides/fde.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+								<path d="M4 10l9 9 1.4-1.5L7 10l7.4-7.5L13 1z"/>
+							</svg>
+						</a>
+
+						<a href="../../installation/guides/arm-devices/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+								<path d="M7 1L5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"/>
+							</svg>
+						</a>
+				</nav>
+			</div>
+		</div>
+
+
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+  <script>
+    // Check if a dark mode cookie exists, and apply dark mode if it does
+    if (getCookie("darkMode") === "true") {
+      applyDarkMode();
+    }
+
+    function toggleDarkMode() {
+      if (getCookie("darkMode") === "true") {
+        // Disable dark mode
+        setCookie("darkMode", "false", 365);
+        applyLightMode();
+      } else {
+        // Enable dark mode
+        setCookie("darkMode", "true", 365);
+        applyDarkMode();
+      }
+    }
+
+    function applyDarkMode() {
+      document.body.classList.add("dark-mode");
+    }
+
+    function applyLightMode() {
+      document.body.classList.remove("dark-mode");
+    }
+
+    // Helper functions for handling cookies
+    function setCookie(name, value, days) {
+      var expires = "";
+      if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+      }
+      document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    }
+
+    function getCookie(name) {
+      var nameEQ = name + "=";
+      var ca = document.cookie.split(';');
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+      }
+      return null;
+    }
+  </script>
+</body>
+</html>
+
