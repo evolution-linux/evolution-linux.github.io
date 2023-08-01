@@ -365,11 +365,11 @@ body.dark-mode h1, h2, h3, h4, h5, h6 {
       color: #8c8c8c;
 }
 
-code.dark-mode {
+.dark-mode code {
       color: #8c8c8c;
 }
 
-#sidebar.dark-mode {
+.dark-mode #sidebar {
 	background-color: #5c5c5c;
 }
 
