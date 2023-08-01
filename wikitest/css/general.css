@@ -18,7 +18,14 @@ a {
 a:hover {
       background-color: #008040;
 }
-
+ao {
+	color: #478061;
+	text-decoration: none;
+}
+ao:hover {
+	color: #333;
+	text-decoration: underline;
+}
 code {
 	background: #fdf6e3;
 	padding: 2px 4px;
