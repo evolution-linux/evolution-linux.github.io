@@ -14,6 +14,7 @@ ao {
       cursor: pointer;
       text-decoration: none;
       transition: background-color 0.3s ease;
+      border-right: 20;
 }
 ao:hover {
       background-color: #008040;
@@ -158,6 +159,7 @@ svg {
       cursor: pointer;
       text-decoration: none;
       transition: background-color 0.3s ease;
+      border-right: 20;
 }
 #void-nav ul li a:hover,
 #void-nav ul li a:focus,
@@ -256,6 +258,7 @@ ul#searchresults span.teaser {
 /* chapter navigation */
 
 #nav-wide-wrapper {
+  background-color: #00cc66;
 	max-width: 800px;
 	margin: 0 auto;
 	margin-top: 50px;
@@ -314,6 +317,7 @@ body {
 /* 300px + 800px + 2*90px + 15px */
 @media only screen and (min-width: 1295px) {
 	.sidebar-visible #nav-wide-wrapper {
+	  background-color: #00cc66;
 		max-width: none;
 		margin: 0;
 	}
@@ -332,6 +336,7 @@ body {
 /* 800px + 2*90px + 15px */
 @media only screen and (min-width: 995px) {
 	.sidebar-hidden #nav-wide-wrapper {
+	  background-color: #00cc66;
 		max-width: none;
 		margin: 0;
 	}
@@ -358,4 +363,16 @@ body {
 
 body.dark-mode h1, h2, h3, h4, h5, h6 {
       color: #8c8c8c;
+}
+
+code.dark-mode {
+	background: #8c8c8c;
+}
+
+#sidebar.dark-mode {
+	background: #5c5c5c;
+}
+
+#void-nav.dark-mode label {
+	fill: #6c6c6c;
 }
