@@ -211,6 +211,7 @@ svg {
 /* sidebar  */
 
 .sidebar-hidden #sidebar {
+  background-color: #00cc66;
   display: none;
 }
 
@@ -411,10 +412,6 @@ body {
 .dark-mode h5,
 .dark-mode h6 {
   color: #8c8c8c;
-}
-
-.dark-mode #sidebar {
-  background-color: #00cc66;
 }
 
 #void-nav.dark-mode label {
