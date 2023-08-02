@@ -3,7 +3,6 @@ body {
   text-align: center;
   padding: 20px;
   background-color: #f2f2f2;
-  transition: background-color 0.3s ease, color 0.3s ease; /* Added transition for background-color and color */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -19,7 +18,6 @@ ao {
   cursor: pointer;
   text-decoration: none;
   transition: background-color 0.3s ease;
-  border-right: 20px; /* You probably meant 'border-right: 20px solid transparent;' */
 }
 
 ao:hover {
@@ -412,7 +410,7 @@ body {
 .dark-mode h4,
 .dark-mode h5,
 .dark-mode h6 {
-  color: #8c8c8c;
+  color: #fff;
 }
 
 #void-nav.dark-mode label {
