@@ -194,5 +194,34 @@ distribution contributors. It will be located in
       return null;
     }
   </script>
+  
+  <script>
+  const aoLinks = document.querySelectorAll('ao[href]');
+
+  aoLinks.forEach(link => {
+    link.addEventListener('click', function(event) {
+      event.preventDefault(); // Prevent default link behavior
+     const href = link.getAttribute('href');
+      if (href) {
+        window.location.href = href; // Navigate to the specified URL
+      }
+    });
+  });
+  </script>
+  
+  <script>
+  const bLinks = document.querySelectorAll('b[href]');
+
+  aoLinks.forEach(link => {
+    link.addEventListener('click', function(event) {
+      event.preventDefault(); // Prevent default link behavior
+     const href = link.getAttribute('href');
+      if (href) {
+        window.location.href = href; // Navigate to the specified URL
+      }
+    });
+  });
+  </script>
+  
     </body>
 </html>

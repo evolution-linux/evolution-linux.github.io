@@ -179,7 +179,7 @@ svg {
   text-decoration: none;
   transition: background-color 0.3s ease;
   min-height: 46px;
-  display: flex;
+  display: block;
 }
     
 #void-nav ul li b:hover {
@@ -249,7 +249,7 @@ svg {
 }
 
 #sidebar a:hover {
-  color: #478061;
+  color: #c8c8c8;
   text-decoration: none;
 }
 
@@ -429,6 +429,9 @@ body.dark-mode code {
   background-color: #5c5c5c;
 }
 
+body.dark-mode pre {
+  background: #5c5c5c;
+}
 
 #void-nav.dark-mode label {
   color: #6c6c6c;
