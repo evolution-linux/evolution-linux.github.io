@@ -169,15 +169,14 @@ svg {
 }
 
 #void-nav ul li ao {
+  line-height: 50px;
   background-color: #00cc66;
   color: #fff;
-  padding: 18px 10px;
   font-size: 20px;
   border: none;
   cursor: pointer;
   text-decoration: none;
   transition: background-color 0.3s ease;
-  border-right: 20px; /* You probably meant 'border-right: 20px solid transparent;' */
 }
 
 #void-nav ul li a:hover,
