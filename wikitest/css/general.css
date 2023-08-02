@@ -169,7 +169,7 @@ svg {
   max-height: 60px;
 }
 
-#void-nav ul li b {
+#void-nav ul li ab {
   background-color: #00cc66;
   color: #fff;
   padding: 7px 0px;
@@ -182,7 +182,7 @@ svg {
   display: block;
 }
     
-#void-nav ul li b:hover {
+#void-nav ul li ab:hover {
   background-color: #008040;
 }
    
@@ -466,6 +466,7 @@ img {
 }
 
 .container {
-  text-align: right;
+  display: flex;
+  justify-content: flex-end;
 }
 
