@@ -336,6 +336,7 @@ body {
 }
 
 #page-wrapper {
+  border-top: 20px
   --content-padding: 10px;
   padding: 0 var(--content-padding);
   width: calc(100% - var(--content-padding) * 2);
