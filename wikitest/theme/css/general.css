@@ -213,6 +213,7 @@ svg {
 }
 
 #sidebar {
+  .border-top: 40px solid transparent;
   padding: .5em;
   background: #00cc66;
   font-size: 0.875em;
