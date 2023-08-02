@@ -395,14 +395,11 @@ body {
 
 /* Dark Mode Styles */
 
-.dark-mode {
+body.dark-mode {
   background-color: #222;
   color: #fff;
 }
 
-.dark-mode code {
-  background-color: #5c5c5c;
-}
 
 body.dark-mode h1,
 body.dark-mode h2,
@@ -412,6 +409,11 @@ body.dark-mode h5,
 body.dark-mode h6 {
   color: #fff;
 }
+
+body.dark-mode code {
+  background-color: #5c5c5c;
+}
+
 
 #void-nav.dark-mode label {
   color: #6c6c6c;
