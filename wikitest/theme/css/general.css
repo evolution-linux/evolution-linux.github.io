@@ -157,7 +157,6 @@ svg {
 }
 
 #void-nav ul li ao {
-  box-sizing: border-box;
   background-color: #00cc66;
   color: #fff;
   padding: 18px 10px;
@@ -453,7 +452,6 @@ ao.dark-mode-button:hover {
 }
 
 img {
-   vertical-align: middle;
    max-height: 40px;
    margin-right: 10px;
    margin-left: 10px;
