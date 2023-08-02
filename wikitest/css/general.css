@@ -12,7 +12,6 @@ h1, h2, h3, h4, h5, h6 {
 ao {
   background-color: #00cc66;
   color: #fff;
-  padding: 18px 10px;
   font-size: 20px;
   border: none;
   cursor: pointer;
@@ -143,6 +142,7 @@ svg {
   line-height: 50px;
   padding: 0 15px;
   font-size: 1.2em;
+  transition: background-color 0.3s ease;
 }
 
 #void-nav ul {
@@ -186,7 +186,7 @@ svg {
 #void-nav button:focus,
 #void-nav label:hover,
 #void-nav label:focus {
-  background-color: #000;
+  background-color: #008040;
 }
 
 #void-nav ul li ao:hover {
