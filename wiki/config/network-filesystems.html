@@ -3,11 +3,8 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="utf-8">
-        <title>EvolutionOS Wiki</title>
-        <meta content="EvolutionOS Wiki" property="og:title">
-        <meta content="This is the wiki for EvolutionOS, the Linux Distro that redefines speed." property="og:title">
-        <meta content="EvolutionOS Wiki" property="og:site_name">
-        <meta content="https://evolution-linux.github.io/evolutionos.png" property="og:image">
+        <title>Network Filesystems - EvolutionOS Handbook</title>
+        <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
@@ -33,15 +30,26 @@
 
 		<header>
 			<nav id="void-nav">
+			
+			  <ul>
+			  	<li><a id="skip-to-content" tabindex="1" href="#main">Skip to content</a></li>
+			  </ul>
+				<ul id="nav-left">
+				  <li>
+				    <ab href="/">
+              <img src="/evolutionos.png" alt="EvolutionOS Logo">
+            </ab>
+          </li>
+        </ul>
+        <ul>
+          <li><ao href="/download">Download</ao></li>
+					<li><ao href="/wiki">Wiki</ao></li>
+					<li><ao href="https://github.com/evolution-linux/evolution-linux.github.io">Source Code</a></li>
+					<ao onclick="toggleDarkMode()" class="dark-mode-button">Toggle Dark Mode</ao>
+				</ul>
+				
+				<div class="align-right">
 				<ul>
-					<li><a id="skip-to-content" tabindex="1" href="#main">Skip to content</a></li>
-					<li>
-						<button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-								<path d="M1 3v2h18V3zm0 8h18V9H1zm0 6h18v-2H1z"/>
-							</svg>
-						</button>
-					</li>
 					<li>
 						<button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -53,14 +61,14 @@
                                           <li class="js-unavailable">Search functionality requires JavaScript</li>
                                         </noscript>
 				</ul>
-				<ul id="nav-right">
-					<li><a href="https://evolution-linux.github.io/">Home</a></li>
-					<li><a href="https://evolution-linux.github.io/download">Download</a></li>
-					<li><a href="https://voidlinux.org/packages/">Packages</a></li>
-					<li><a href="https://evolution-linux.github.io/wiki">Documentation</a></li>
-					<li><a href="https://man.voidlinux.org/">Manual Pages</a></li>
-					<li><a href="https://github.com/evolution-linux">Source Code</a></li>
-				</ul>
+					<li>
+						<button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+								<path d="M1 3v2h18V3zm0 8h18V9H1zm0 6h18v-2H1z"/>
+							</svg>
+						</button>
+					</li>
+				</div>
 			</nav>
 		</header>
 
@@ -173,5 +181,81 @@ your server.</p>
         <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
 
         <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+          <script>
+    // Check if a dark mode cookie exists, and apply dark mode if it does
+    if (getCookie("darkMode") === "true") {
+      applyDarkMode();
+    }
+
+    function toggleDarkMode() {
+      if (getCookie("darkMode") === "true") {
+        // Disable dark mode
+        setCookie("darkMode", "false", 365);
+        applyLightMode();
+      } else {
+        // Enable dark mode
+        setCookie("darkMode", "true", 365);
+        applyDarkMode();
+      }
+    }
+
+    function applyDarkMode() {
+      document.body.classList.add("dark-mode");
+    }
+
+    function applyLightMode() {
+      document.body.classList.remove("dark-mode");
+    }
+
+    // Helper functions for handling cookies
+    function setCookie(name, value, days) {
+      var expires = "";
+      if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+      }
+      document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    }
+
+    function getCookie(name) {
+      var nameEQ = name + "=";
+      var ca = document.cookie.split(';');
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+      }
+      return null;
+    }
+  </script>
+  
+  <script>
+  const aoLinks = document.querySelectorAll('ao[href]');
+
+  aoLinks.forEach(link => {
+    link.addEventListener('click', function(event) {
+      event.preventDefault(); // Prevent default link behavior
+     const href = link.getAttribute('href');
+      if (href) {
+        window.location.href = href; // Navigate to the specified URL
+      }
+    });
+  });
+  </script>
+  
+  <script>
+  const abLinks = document.querySelectorAll('ab[href]');
+
+  abLinks.forEach(link => {
+    link.addEventListener('click', function(event) {
+      event.preventDefault(); // Prevent default link behavior
+     const href = link.getAttribute('href');
+      if (href) {
+        window.location.href = href; // Navigate to the specified URL
+      }
+    });
+  });
+  </script>
     </body>
 </html>

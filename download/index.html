@@ -49,7 +49,7 @@
       background-color: #008040;
     }
     
-    .title-bar b {
+    .title-bar ab {
       background-color: #00cc66;
       color: #fff;
       padding: 7px 0px;
@@ -60,7 +60,7 @@
       transition: background-color 0.3s ease;
     }
     
-    .title-bar b:hover {
+    .title-bar ab:hover {
       background-color: #008040;
     }
     
@@ -154,9 +154,9 @@
 </head>
 <body>
   <div class="title-bar">
-    <b href="/">
+    <ab href="/">
       <img src="/evolutionos.png" alt="EvolutionOS Logo">
-    </b>
+    </ab>
     <div class="buttons">
       <a href="/download">Download</a>
       <a href="/wiki">Wiki</a>
@@ -241,6 +241,20 @@
       }
       return null;
     }
+  </script>
+  
+  <script>
+  const abLinks = document.querySelectorAll('ab[href]');
+
+  abLinks.forEach(link => {
+    link.addEventListener('click', function(event) {
+      event.preventDefault(); // Prevent default link behavior
+     const href = link.getAttribute('href');
+      if (href) {
+        window.location.href = href; // Navigate to the specified URL
+      }
+    });
+  });
   </script>
 </body>
 </html>
