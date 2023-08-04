@@ -1,5 +1,5 @@
 # EvolutionOS Homepage
 
-This is the website for EvolutionOS / Evolution Linux
+This site has been moved to gitlab
 
-Downloads can be found in releases
+Please visit evolutionos.gitlab.io
