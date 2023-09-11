@@ -1,5 +1,5 @@
 # EvolutionOS Homepage
 
-This site has been moved to gitlab
+This site has been moved to codeberg
 
-Please visit evolutionos.gitlab.io
+Please visit evolutionos.codeberg.page
