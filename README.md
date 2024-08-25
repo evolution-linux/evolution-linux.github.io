@@ -1,5 +1,4 @@
 # EvolutionOS Homepage
 
-This site has been moved to codeberg
-
-Please visit evolutionos.codeberg.page
+This site has been moved to ailur.dev
+Goto https://git.ailur.dev/evolutionos/evolutionos-website/
